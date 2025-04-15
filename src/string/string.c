@@ -208,15 +208,28 @@ void *memcpy(void *destination, const void *source, size_t num)
 void *memmove(void *destination, const void *source, size_t num)
 {
 	char *dst = (char *)destination;
-	char *src = (char *)source;
+	const char *src = (const char *)source;
 
-	while (num)
+	if (dst < src || dst >= src + num)
 	{
-		*dst = *src;
-		dst++;
-		src++;
-		num--;
+		while (num--)
+		{
+			*dst = *src;
+			dst++;
+			src++;
+		}
 	}
+	else
+	{
+		// copy backwards
+		dst += num;
+		src += num;
+		while (num--)
+		{
+			*(--dst) = *(--src);
+		}
+	}
+
 	return destination;
 }
 
