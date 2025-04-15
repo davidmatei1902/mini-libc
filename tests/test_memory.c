@@ -13,7 +13,7 @@ static int test_mmap(void)
 
 	p = mmap(NULL, 4096, PROT_READ | PROT_WRITE, MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
 
-	return (long) p > 0;
+	return (long)p > 0;
 }
 
 static int test_mmap_bad_fd(void)
@@ -41,7 +41,7 @@ static int test_mremap(void)
 	p = mmap(NULL, 4096, PROT_READ | PROT_WRITE, MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
 	p = mremap(p, 4096, 8192, MREMAP_MAYMOVE);
 
-	return (long) p > 0;
+	return (long)p > 0;
 }
 
 static int test_malloc(void)
@@ -151,20 +151,20 @@ static int test_realloc_array(void)
 }
 
 static struct graded_test memory_tests[] = {
-	{ test_mmap, "test_mmap", 8 },
-	{ test_mmap_bad_fd, "test_mmap_bad_fd", 8 },
-	{ test_mmap_bad_flags, "test_mmap_bad_flags", 8 },
-	{ test_mremap, "test_mremap", 8 },
-	{ test_malloc, "test_malloc", 8 },
-	{ test_malloc_two, "test_malloc_two", 8 },
-	{ test_malloc_access, "test_malloc_access", 8 },
-	{ test_malloc_memset, "test_malloc_memset", 8 },
-	{ test_malloc_memcpy, "test_malloc_memcpy", 8 },
-	{ test_calloc, "test_calloc", 8 },
-	{ test_realloc, "test_realloc", 8 },
-	{ test_realloc_access, "test_realloc_access", 8 },
-	{ test_realloc_memset, "test_realloc_memset", 8 },
-	{ test_realloc_array, "test_realloc_array", 8 },
+	{test_mmap, "test_mmap", 8},
+	{test_mmap_bad_fd, "test_mmap_bad_fd", 8},
+	{test_mmap_bad_flags, "test_mmap_bad_flags", 8},
+	{test_mremap, "test_mremap", 8},
+	{test_malloc, "test_malloc", 8},
+	{test_malloc_two, "test_malloc_two", 8},
+	{test_malloc_access, "test_malloc_access", 8},
+	{test_malloc_memset, "test_malloc_memset", 8},
+	{test_malloc_memcpy, "test_malloc_memcpy", 8},
+	{test_calloc, "test_calloc", 8},
+	{test_realloc, "test_realloc", 8},
+	{test_realloc_access, "test_realloc_access", 8},
+	{test_realloc_memset, "test_realloc_memset", 8},
+	{test_realloc_array, "test_realloc_array", 8},
 };
 
 int main(void)

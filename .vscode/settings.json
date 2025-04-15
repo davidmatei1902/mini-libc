@@ -4,6 +4,9 @@
     "syscall.h": "c",
     "syscall_list.h": "c",
     "stdlib.h": "c",
-    "time.h": "c"
+    "time.h": "c",
+    "mman.h": "c",
+    "string.h": "c",
+    "types.h": "c"
   }
 }

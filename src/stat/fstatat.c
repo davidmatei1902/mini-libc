@@ -54,5 +54,11 @@ int fstatat_statx(int fd, const char *restrict path, struct stat *restrict st, i
 
 int fstatat(int fd, const char *restrict path, struct stat *restrict st, int flag)
 {
-	// TODO
+	int ret = syscall(__NR_statfs, fd, path, st, flag);
+	if (ret < 0)
+	{
+		errno = -ret;
+		return -1;
+	}
+	return ret;
 }
